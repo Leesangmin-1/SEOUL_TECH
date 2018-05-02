@@ -15,10 +15,16 @@ int main(void)
     PORTD = 0xff;
     while (1) 
     {
-		PORTD = 0x00;
-		_delay_ms(100);
-		PORTD = 0xff;
-		_delay_ms(100);
+		for (int i=0; i <7; i++)
+		{
+			PORTD = ~(1<<i);
+			_delay_ms(300);
+		}
+		for (int i=0; i <7; i++)
+		{
+			PORTD = ~(0x80 >> i);
+			_delay_ms(300);
+		}
     }
 }
 
